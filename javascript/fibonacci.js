@@ -1,18 +1,20 @@
 function fibonacci(num) {
-  let arr = [0, 1];
-  let i = 2;
+  if (num < 2) {
+    return num;
+  }
 
-  while (i <= num) {
-    newNumber = arr[0] + arr[1];
-    arr[0] = arr[1];
-    arr[1] = newNumber;
-    i++;
+  let arr = [0, 1];
+
+  for (let i = 2; i <= num; i++) {
+    sum = arr[0] + arr[1];
+    arr = [arr[1], sum];
   }
 
   return arr[1];
 }
 
 // Overarching strategy:
+//    if the number is 0 or 1, just return the number.
 //    use an array to hold placeholder values for 2 numbers
 //    sum the numbers, then replace the values so that you're tracking the most recent sum and the previous value
 //    keep following this pattern until you reach the desired number

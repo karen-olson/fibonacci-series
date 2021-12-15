@@ -22,13 +22,14 @@ require 'pry'
 
 def fibonacci(num)
   arr = [0, 1]
+
+  return num if num < 2
   
   (num-1).times do
-    new_number = arr[0] + arr[1]
-    arr[0] = arr[1]
-    arr[1] = new_number
+    sum = arr[0] + arr[1]
+    arr = [arr[1], sum]
   end
-  
+
   arr[1]
 end
 
